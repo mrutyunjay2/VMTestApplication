@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">VMApplication</string>
+    <string name="email_id">Email ID</string>
+    <string name="name">Name</string>
+    <string name="jobtitle">job Title</string>
+    <string name="favouritecolor">Favourite Color</string>
+    <string name="showdetails">ShowDetails</string>
+    <string name="Cancel">Cancel
+    </string>
+    <string name="EmployeeDetails">Employee Details</string>
+
+</resources>
