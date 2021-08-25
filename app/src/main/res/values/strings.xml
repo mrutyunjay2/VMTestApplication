@@ -13,5 +13,8 @@
     <string name="EmployeeDetails">Employee Details</string>
     <string name="capacity">Capacity</string>
     <string name="availability">Availability</string>
+    <string name="RoomAvailability">Room Status</string>
+
+    <string name="noConnection">No Internet Connection..Please try after sometime..</string>
 
 </resources>

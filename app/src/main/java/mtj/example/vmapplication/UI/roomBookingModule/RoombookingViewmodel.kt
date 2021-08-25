@@ -18,18 +18,24 @@ class RoombookingViewmodel(
     val roomLivedata: MutableLiveData<List<RoomResponse>> = MutableLiveData()
     private var job: Job? = null
         fun getRoombookDetails(){
-            loading.value=true
-            job = CoroutineScope(Dispatchers.IO ).launch {
-                val response = roomBookingDetailsRepository.getRoombookingDeatils()
-                withContext(Dispatchers.Main) {
-                    if (response.isSuccessful) {
-                        roomLivedata.postValue(response.body())
-                        loading.value = false
-                    } else {
-                        onError("Error : ${response.message()} ")
+            if(checkInternetConnection()) {
+                loading.value = true
+                job = CoroutineScope(Dispatchers.IO).launch {
+                    val response = roomBookingDetailsRepository.getRoombookingDeatils()
+                    withContext(Dispatchers.Main) {
+                        if (response.isSuccessful) {
+                            roomLivedata.postValue(response.body())
+                            loading.value = false
+                        } else {
+                            onError("Error : ${response.message()} ")
+                        }
                     }
                 }
             }
+            else{
+                errorMsg.value ="No Internet Connection..Please try after sometime.."
+            }
+
         }
     private fun onError(message: String) {
         errorMsg.value = message

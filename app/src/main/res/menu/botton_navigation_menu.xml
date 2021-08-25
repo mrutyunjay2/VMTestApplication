@@ -7,9 +7,9 @@
         app:showAsAction="always"/>
 
     <item android:id="@+id/itemBookRoom"
-        android:title="@string/EmployeeDetails"
-        android:titleCondensed="@string/EmployeeDetails"
-        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/RoomAvailability"
+        android:titleCondensed="@string/RoomAvailability"
+        android:icon="@drawable/selector_room"
         app:showAsAction="always"/>
 
 </menu>

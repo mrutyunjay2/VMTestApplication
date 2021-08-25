@@ -28,6 +28,10 @@ class EmpDetailsViewModel(private val empDetailsRepository: EmpDetailsRepository
                 }
             }
         }
+        else{
+            errorMsg.value ="No Internet Connection..Please try after sometime.."
+        }
+
 
     }
     private fun onError(message: String) {
