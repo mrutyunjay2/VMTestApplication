@@ -52,7 +52,7 @@
                 android:gravity="center_vertical"
                 android:text="@string/name"
                 android:layout_gravity="center"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -65,7 +65,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:text="@string/jobtitle"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -78,7 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:text="@string/email_id"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -90,7 +90,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:text="Mobile No"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -103,7 +103,7 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center_vertical"
                 android:text="Location"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:visibility="visible" />
@@ -130,7 +130,7 @@
                     android:layout_weight=".5"
                     android:gravity="center_vertical"
                     android:text="@string/favouritecolor"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 

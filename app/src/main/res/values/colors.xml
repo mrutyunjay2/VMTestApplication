@@ -10,5 +10,7 @@
     <color name="colorPrimary">#C40202</color>
     <color name="colorAccent">#FF5252</color>
     <color name="colorlightred">#FAF5F5</color>
+    <color name="red">#FA0404</color>
+    <color name="green">#255920</color>
 
 </resources>

@@ -3,11 +3,10 @@ package mtj.example.vmapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_home.*
 import mtj.example.vmapplication.UI.EmpDetailsModule.EmpDetailsFragment
+import mtj.example.vmapplication.UI.roomBookingModule.RoomFragment
 
 
 class HomeActivity : AppCompatActivity() {
@@ -17,19 +16,13 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        if((application as VirginMoneyApp).checkInternet()) {
             homeViewModel.onEmployeeSelected()
             setObserver()
             navigationDetails()
-        }else {
-            val snack = Snackbar.make(rootLayout,"No internet connection...Please try again",Snackbar.LENGTH_LONG)
-            snack.show()
-        }
 
     }
 
-    fun navigationDetails(){
+   private fun navigationDetails(){
         bottomNavigation.run {
             setOnNavigationItemSelectedListener {
                 when(it.itemId){
@@ -37,7 +30,7 @@ class HomeActivity : AppCompatActivity() {
                         homeViewModel.onEmployeeSelected()
                         true
                     }
-                    R.id.bottomNavigation ->{
+                    R.id.itemBookRoom ->{
                         homeViewModel.onRoomBookSelected()
                         true
                     }
@@ -47,10 +40,15 @@ class HomeActivity : AppCompatActivity() {
         }
 
     }
-        fun setObserver(){
-            homeViewModel.employeeNavigation.observe(this, Observer {
+       private fun setObserver(){
+            homeViewModel.employeeNavigation.observe(this,{
                 it.getIfNotHandled()?.run {
                     showEmployeeDetails()
+                }
+            })
+            homeViewModel.roomNavigation.observe(this,{
+                it.getIfNotHandled()?.run {
+                    showRoomDetails()
                 }
             })
         }
@@ -71,6 +69,24 @@ class HomeActivity : AppCompatActivity() {
 
         fragmentTransaction.commit()
 
+        activeFragment = fragment
+    }
+
+    private fun showRoomDetails() {
+        if (activeFragment is RoomFragment) return
+        val fragmentTransaction = supportFragmentManager.beginTransaction()
+
+        var fragment = supportFragmentManager.findFragmentByTag(RoomFragment.TAG) as RoomFragment?
+
+        if (fragment == null) {
+            fragment = RoomFragment.newInstance()
+            fragmentTransaction.add(R.id.containerFragment, fragment, RoomFragment.TAG)
+        } else {
+            fragmentTransaction.show(fragment)
+        }
+
+        if (activeFragment != null) fragmentTransaction.hide(activeFragment as Fragment)
+        fragmentTransaction.commit()
         activeFragment = fragment
     }
 }

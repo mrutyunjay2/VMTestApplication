@@ -32,4 +32,6 @@ ext {
     okhttp_version = '5.0.0-alpha.2'
     // Image
     glide_version = '4.12.0'
+    //CoRoutine
+    coroutine_version = "1.4.1"
 }

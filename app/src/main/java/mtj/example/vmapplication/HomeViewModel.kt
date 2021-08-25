@@ -14,7 +14,7 @@ class HomeViewModel( ) : ViewModel() {
     }
 
     fun onRoomBookSelected() {
-        employeeNavigation.postValue(Event(true))
+        roomNavigation.postValue(Event(true))
     }
 
 

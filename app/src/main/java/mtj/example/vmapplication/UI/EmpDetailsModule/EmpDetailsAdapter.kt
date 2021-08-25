@@ -30,7 +30,7 @@ class EmpDetailsAdapter(private var dataList: List<PeopleResponse>): RecyclerVie
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ItemsViewModel = dataList[position]
-        holder.slNo.text = "S.No :" +ItemsViewModel.id
+        holder.slNo.text = "Sl No:" +ItemsViewModel.id
         holder.name.text = "Name :" +ItemsViewModel.firstName + ItemsViewModel.lastName
         holder.mob.text =  "Mob.No :" +ItemsViewModel.phone
         holder.jobTitle.text = "Job Title :" + ItemsViewModel.jobTitle
@@ -38,8 +38,6 @@ class EmpDetailsAdapter(private var dataList: List<PeopleResponse>): RecyclerVie
         val favcolor: Int = Color.parseColor(ItemsViewModel.favouriteColor)
         holder.favColor.setBackgroundColor(favcolor)
         val img_url = ItemsViewModel.avatar
-        val latitude:String = ItemsViewModel.latitude
-        val longitude:String = ItemsViewModel.longitude
         holder.itemView.setOnClickListener {
 
             val dialog = Dialog(it.context,android.R.style.Theme_Light)
@@ -96,6 +94,8 @@ class EmpDetailsAdapter(private var dataList: List<PeopleResponse>): RecyclerVie
 
 
     }
+
+
 
 
 

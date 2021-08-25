@@ -1,14 +1,17 @@
 package mtj.example.vmapplication.data.remote
 
 
-import androidx.lifecycle.LiveData
-import mtj.example.vmapplication.data.remote.response.EmpResponse
 import mtj.example.vmapplication.data.remote.response.PeopleResponse
+import mtj.example.vmapplication.data.remote.response.RoomResponse
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 interface NetworkService {
 
     @GET(Endpoints.PEOPLE)
-    fun getEmployeeDetails(): Call<List<PeopleResponse>>
+    suspend fun getEmployeeDetails() : Response<List<PeopleResponse>>
+
+    @GET(Endpoints.ROOMS)
+    suspend  fun getRoombokingDetails(): Response<List<RoomResponse>>
 }

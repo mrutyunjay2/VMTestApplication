@@ -21,23 +21,5 @@ class NetworkHelper constructor(private val context: Context) {
         return activeNetwork?.isConnected ?: false
     }
 
-    fun castToNetworkError(throwable: Throwable): NetworkError {
-        val defaultNetworkError = NetworkError()
-        try {
-            if (throwable is ConnectException) return NetworkError(0, "0")
-            if (throwable !is HttpException) return defaultNetworkError
-            val error = GsonBuilder()
-                .excludeFieldsWithoutExposeAnnotation()
-                .create()
-                .fromJson(throwable.response()?.errorBody()?.string(), NetworkError::class.java)
-            return NetworkError(throwable.code(), error.statusCode, error.message)
-        } catch (e: IOException) {
 
-        } catch (e: JsonSyntaxException) {
-
-        } catch (e: NullPointerException) {
-
-        }
-        return defaultNetworkError
-    }
 }
