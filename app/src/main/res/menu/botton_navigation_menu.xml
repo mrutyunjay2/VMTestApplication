@@ -11,5 +11,4 @@
         android:titleCondensed="@string/RoomAvailability"
         android:icon="@drawable/selector_room"
         app:showAsAction="always"/>
-
 </menu>
