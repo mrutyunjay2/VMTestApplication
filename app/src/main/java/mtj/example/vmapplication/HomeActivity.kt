@@ -4,17 +4,26 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.analytics.FirebaseAnalytics
 import kotlinx.android.synthetic.main.activity_home.*
 import mtj.example.vmapplication.UI.EmpDetailsModule.EmpDetailsFragment
 import mtj.example.vmapplication.UI.roomBookingModule.RoomFragment
 
 
 class HomeActivity : AppCompatActivity() {
+
+
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     lateinit var homeViewModel: HomeViewModel
     private var activeFragment: Fragment? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
+        val bundle = Bundle()
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID,"my_item_id")
+        firebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT,bundle)
+
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
             homeViewModel.onEmployeeSelected()
             setObserver()

@@ -22,3 +22,4 @@ abstract class BaseViewModel(private val networkHelper: NetworkHelper) :ViewMode
 
     abstract fun onCreate()
 }
+

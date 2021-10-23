@@ -17,6 +17,8 @@ class RoombookingViewmodel(
     val errorMsg: MutableLiveData<String> = MutableLiveData()
     val roomLivedata: MutableLiveData<List<RoomResponse>> = MutableLiveData()
     private var job: Job? = null
+
+
         fun getRoombookDetails(){
             if(checkInternetConnection()) {
                 loading.value = true
